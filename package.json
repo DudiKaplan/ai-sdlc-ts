@@ -1,0 +1,54 @@
+{
+  "name": "ts-ai-sdlc",
+  "version": "1.0.0",
+  "description": "Modern fullstack TypeScript project with Vite, React, TanStack Router, TanStack Query, Remult, and PostgreSQL - aligned with Agentic SDLC AI Directives",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "tsx watch src/server/index.ts",
+    "dev:client": "vite",
+    "build": "tsc && vite build",
+    "build:server": "tsc",
+    "build:client": "vite build",
+    "preview": "vite preview",
+    "start": "node dist/server/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "db:generate": "tsx src/server/db/generate-migrations.ts",
+    "db:migrate": "tsx src/server/db/migrate.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@tanstack/react-query": "^5.60.5",
+    "@tanstack/react-router": "^1.136.11",
+    "remult": "^0.27.5",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@types/pg": "^8.11.10",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@tanstack/router-devtools": "^1.136.11",
+    "@tanstack/react-query-devtools": "^5.60.5",
+    "@tanstack/router-plugin": "^1.136.11",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

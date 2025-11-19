@@ -1,5 +1,9 @@
 {
   "mcpServers": {
+    "agentic-sdlc-ai-directives": {
+      "command": "npx",
+      "args": ["-y", "@tikalk/agentic-sdlc-ai-directives-mcp"]
+    },
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]

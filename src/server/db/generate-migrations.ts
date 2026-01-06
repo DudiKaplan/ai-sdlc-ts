@@ -1,7 +1,7 @@
 import { SqlDatabase } from 'remult'
 import { PostgresDataProvider } from 'remult/postgres'
-import { pool } from './connection'
-import { Task } from '../../shared/entities/Task'
+import { pool } from './connection.js'
+import { Task } from '../../shared/entities/Task.js'
 import { writeFileSync, mkdirSync, existsSync } from 'fs'
 import { join } from 'path'
 

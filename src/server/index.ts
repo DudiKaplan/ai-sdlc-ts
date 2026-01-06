@@ -1,9 +1,10 @@
 import express from 'express'
-import { api } from './api/remult'
-import { testConnection } from './db/connection'
+import { api } from './api/remult.js'
+import { testConnection } from './db/connection.js'
 import { config } from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { existsSync } from 'fs'
 
 config()
 
@@ -29,15 +30,23 @@ app.get('/api/hello', (req, res) => {
 // Remult API (handles /api/tasks, /api/admin, etc.)
 app.use(api)
 
-// Serve static files from Vite build in production
-if (process.env.NODE_ENV === 'production') {
-  const clientDistPath = path.join(__dirname, '../client')
+// Serve static files from Vite build (when running from dist/)
+// Check if client dist directory exists (production build)
+const clientDistPath = path.join(__dirname, '../client')
+const clientDistExists = existsSync(clientDistPath)
+
+if (clientDistExists) {
   app.use(express.static(clientDistPath))
 
   // SPA fallback: serve index.html for all non-API routes
   app.get('*', (req, res) => {
+    // Don't serve index.html for API routes
+    if (req.path.startsWith('/api')) {
+      return res.status(404).json({ error: 'Not found' })
+    }
     res.sendFile(path.join(clientDistPath, 'index.html'))
   })
+  console.log('🌐 Frontend static files will be served from dist/client')
 }
 
 // Start server

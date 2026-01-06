@@ -1,6 +1,6 @@
 import { SqlDatabase } from 'remult'
 import { PostgresDataProvider } from 'remult/postgres'
-import { pool } from './connection'
+import { pool } from './connection.js'
 
 /**
  * Database Migration Runner

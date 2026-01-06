@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "outDir": "dist",
+      "rootDir": "src",
+      "sourceMap": true,
+  
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+  
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+  
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"],
+        "@server/*": ["./src/server/*"],
+        "@shared/*": ["./src/shared/*"]
+      }
+    },
+    "include": ["src/server/**/*", "src/shared/**/*"],
+    "exclude": ["node_modules", "dist"]
+  }
+  

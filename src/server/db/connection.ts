@@ -14,7 +14,7 @@ export const pool = new Pool({
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-  ssl: false,
+  ssl: process.env.NODE_ENV === 'production' ? false : true,
 })
 
 export async function testConnection() {
